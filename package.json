@@ -6,7 +6,8 @@
   },
   "scripts": {
     "changed": "lerna changed",
-    "release": "lerna version --conventional-commits --yes"
+    "release": "lerna version --conventional-commits --yes",
+    "bump": "lerna version --conventional-commits --yes"
 
 
   }

@@ -1,5 +1,8 @@
-name: Create release
-on: [workflow_dispatch]
+name: Auto bump version
+on:
+  push:
+    branches:
+      - master
 jobs:
   release:
     name: Create rekease
@@ -22,4 +25,4 @@ jobs:
       - name: Install
         run: yarn install
       - name: Lerna Bump version
-        run: yarn release
+        run: yarn bump
