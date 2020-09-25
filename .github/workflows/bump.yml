@@ -4,8 +4,8 @@ on:
     branches:
       - master
 jobs:
-  release:
-    name: Create rekease
+  autoBump:
+    name: Bump packages
     runs-on: ubuntu-latest
     steps:
       - name: Clone Repository
