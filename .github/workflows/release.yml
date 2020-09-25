@@ -1,0 +1,25 @@
+name: Create release
+on: [workflow_dispatch]
+jobs:
+  release:
+    name: Create rekease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node_version: 12
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Git Identity
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install
+        run: yarn install
+      - name: Lerna Bump version
+        run: lerna changed

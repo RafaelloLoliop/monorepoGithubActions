@@ -1,9 +1,0 @@
-name: Create release
-on: [workflow_dispatch]
-jobs:
-  release:
-    name: Create rekease
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone Repository
-        uses: actions/checkout@v2
